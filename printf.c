@@ -6,7 +6,7 @@
 int _printf(const char *format, ...)
 {
 	int no_of_chars = 0, i, num;
-	char cha;
+	char cha, buffing[30];
 	char *strings;
 	va_list args;
 
@@ -46,7 +46,17 @@ int _printf(const char *format, ...)
 							no_of_chars++;
 							num = -num;
 						}
-						no_of_chars += _printf_contd(num, args);
+						while (num > 0)
+						{
+							buffing[i++] = (num % 10) + '0';
+							num = num / 10;
+						}
+						while  (i > 0)
+						{
+							_putchar(buffing[--i]);
+							no_of_chars++;
+						}
+						
 						break;
 					}
 
