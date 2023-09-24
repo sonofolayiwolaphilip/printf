@@ -1,5 +1,5 @@
-#ifndef _PRINTF_H
-#define _PRINTF_H
+#ifndef MAIN_H
+#define MAIN_H
 #include <unistd.h>
 #include <stdarg.h>
 int _putchar(char c);
