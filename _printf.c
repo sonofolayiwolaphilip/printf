@@ -20,8 +20,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int no_of_chars = 0, i, num;
-	char cha, buffing[30];
+	int no_of_chars = 0, i = 0, num;
+	char cha, buffing[12];
 	char *strings;
 	va_list args;
 
@@ -61,7 +61,15 @@ int _printf(const char *format, ...)
 							no_of_chars++;
 							num = -num;
 						}
-						while (num > 0)
+						i = 0;
+						if (num == 0)
+						{
+							putchar('0');
+							no_of_chars++;
+						}
+						else
+						{
+							while (num > 0)
 						{
 							buffing[i++] = (num % 10) + '0';
 							num = num / 10;
@@ -71,7 +79,7 @@ int _printf(const char *format, ...)
 							_putchar(buffing[--i]);
 							no_of_chars++;
 						}
-						
+						}
 						break;
 					}
 
